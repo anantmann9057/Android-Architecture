@@ -34,10 +34,18 @@ class HomeFragment : Fragment() {
         btApi.setOnClickListener {
             controller.navigate(R.id.action_homeFragment_to_apiFragment)
         }
+
+        btBundle.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("data", "Data Passed From Bundle")
+            controller.navigate(R.id.action_homeFragment_to_bundleFragment, bundle)
+        }
+
         btInjection.setOnClickListener {
             controller.navigate(R.id.action_homeFragment_to_injectionFragment)
 
         }
+
         btPreferences.setOnClickListener {
             controller.navigate(R.id.action_homeFragment_to_preferenceFragment)
         }

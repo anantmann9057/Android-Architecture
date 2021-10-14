@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_preferenceFragment"
             app:destination="@id/preferenceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bundleFragment"
+            app:destination="@id/bundleFragment" />
     </fragment>
     <fragment
         android:id="@+id/apiFragment"
@@ -39,4 +42,9 @@
         android:name="android.architecture.ui.main.fragments.PreferenceFragment"
         android:label="Preference Example"
         tools:layout="@layout/fragment_preference" />
+    <fragment
+        android:id="@+id/bundleFragment"
+        android:name="android.architecture.ui.main.fragments.BundleFragment"
+        android:label="Bundle Example"
+        tools:layout="@layout/fragment_bundle" />
 </navigation>
