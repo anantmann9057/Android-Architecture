@@ -20,7 +20,7 @@ class PreferencesModule @Inject constructor(@ApplicationContext var context: Con
     }
 
     fun getData(): String? {
-        return appSharedPrefs.getString(sampleData, "")
+        return appSharedPrefs.getString(sampleData, "Hello")
     }
 
 

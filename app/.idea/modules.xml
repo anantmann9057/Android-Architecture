@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/app.iml" filepath="$PROJECT_DIR$/.idea/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build/tmp/build.iml" filepath="$PROJECT_DIR$/build/tmp/build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/build/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build/generated/data_binding_base_class_source_out/data_binding_base_class_source_out.iml" filepath="$PROJECT_DIR$/build/generated/data_binding_base_class_source_out/data_binding_base_class_source_out.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build/generated/data_binding_trigger/data_binding_trigger.iml" filepath="$PROJECT_DIR$/build/generated/data_binding_trigger/data_binding_trigger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build/generated/source/kapt/kapt.iml" filepath="$PROJECT_DIR$/build/generated/source/kapt/kapt.iml" />
+    </modules>
+  </component>
+</project>

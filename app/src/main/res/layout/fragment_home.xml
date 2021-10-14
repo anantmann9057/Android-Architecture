@@ -23,5 +23,13 @@
         android:text="Injection Example"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/btApi" />
+    <Button
+        android:id="@+id/btPreferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Preference Example"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btInjection" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

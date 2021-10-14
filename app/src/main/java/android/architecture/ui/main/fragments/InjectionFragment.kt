@@ -16,6 +16,7 @@ import javax.inject.Inject
 class InjectionFragment : Fragment() {
     @Inject
     lateinit var mainActivity: MainActivity
+
     @Inject
     lateinit var utilsModuleClass: UtilsModuleClass
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +39,10 @@ class InjectionFragment : Fragment() {
 
     fun setUi() {
         btFetchInjection.setOnClickListener {
-            utilsModuleClass.showToast("this is injected from utils module")
+            utilsModuleClass.showToast("Toast from injected module")
+        }
+        btLog.setOnClickListener {
+            utilsModuleClass.showLog("Log from injected module")
         }
     }
 }

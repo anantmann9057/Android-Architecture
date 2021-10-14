@@ -38,6 +38,9 @@ class HomeFragment : Fragment() {
             controller.navigate(R.id.action_homeFragment_to_injectionFragment)
 
         }
+        btPreferences.setOnClickListener {
+            controller.navigate(R.id.action_homeFragment_to_preferenceFragment)
+        }
     }
 
 

@@ -2,7 +2,7 @@ package android.architecture.ui.main.fragments
 
 import android.architecture.R
 import android.architecture.utils.PreferencesModule
-import android.architecture.utils.onTextChange
+import android.architecture.utils.showToast
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +38,9 @@ class PreferenceFragment : Fragment() {
     }
 
     fun setUi() {
-        edSetData.onTextChange {
-            preferencesModule.setData(it)
+        btSetPref.setOnClickListener {
+            preferencesModule.setData(edSetData.text.toString())
+            showToast("Preference Updated")
         }
         if (preferencesModule.getData()!!.isNotEmpty()) {
             edSetData.setText(preferencesModule.getData())
