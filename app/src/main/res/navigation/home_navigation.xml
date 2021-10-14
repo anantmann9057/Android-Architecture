@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="android.architecture.ui.main.fragments.HomeFragment"
+        android:label="Android Architecture"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_apiFragment"
+            app:destination="@id/apiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_injectionFragment"
+            app:destination="@id/injectionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_preferenceFragment"
+            app:destination="@id/preferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/apiFragment"
+        android:name="android.architecture.ui.main.fragments.ApiFragment"
+        android:label="Api Example"
+        tools:layout="@layout/fragment_api" />
+    <fragment
+        android:id="@+id/injectionFragment"
+        android:name="android.architecture.ui.main.fragments.InjectionFragment"
+        android:label="Injection Example"
+        tools:layout="@layout/fragment_injection" >
+        <action
+            android:id="@+id/action_injectionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preferenceFragment"
+        android:name="android.architecture.ui.main.fragments.PreferenceFragment"
+        android:label="Preference Example"
+        tools:layout="@layout/fragment_preference" />
+</navigation>
