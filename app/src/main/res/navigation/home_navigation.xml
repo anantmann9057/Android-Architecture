@@ -22,10 +22,13 @@
         <action
             android:id="@+id/action_homeFragment_to_bundleFragment"
             app:destination="@id/bundleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_offlineCachingFragment"
+            app:destination="@id/offlineCachingFragment" />
     </fragment>
     <fragment
         android:id="@+id/apiFragment"
-        android:name="android.architecture.ui.main.fragments.ApiFragment"
+        android:name="android.architecture.ui.api.ApiFragment"
         android:label="Api Example"
         tools:layout="@layout/fragment_api" />
     <fragment
@@ -47,4 +50,9 @@
         android:name="android.architecture.ui.main.fragments.BundleFragment"
         android:label="Bundle Example"
         tools:layout="@layout/fragment_bundle" />
+    <fragment
+        android:id="@+id/offlineCachingFragment"
+        android:name="android.architecture.ui.main.fragments.OfflineCachingFragment"
+        android:label="Offline Caching Example"
+        tools:layout="@layout/fragment_offline_caching" />
 </navigation>

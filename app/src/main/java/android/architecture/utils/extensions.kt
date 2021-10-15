@@ -10,11 +10,11 @@ fun EditText.onTextChange(callback: (String) -> Unit) {
     callback.invoke(callback.toString())
 }
 
-fun Context.showToast(mssg: String?) {
+fun Context.showToast(mssg: Any?) {
     Toast.makeText(this, "$mssg", Toast.LENGTH_SHORT).show()
 }
 
-fun Fragment.showToast(mssg: String?) {
+fun Fragment.showToast(mssg: Any?) {
     Toast.makeText(requireContext(), "$mssg", Toast.LENGTH_SHORT).show()
 }
 

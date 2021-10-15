@@ -45,4 +45,13 @@
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/btInjection" />
 
+    <Button
+        android:id="@+id/btOfflineCaching"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Offline Caching Example"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/btPreferences" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

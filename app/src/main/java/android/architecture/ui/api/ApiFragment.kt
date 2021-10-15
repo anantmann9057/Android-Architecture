@@ -1,24 +1,19 @@
-package android.architecture.ui.main.fragments
+package android.architecture.ui.api
 
 import android.app.Activity
 import android.architecture.R
-import android.architecture.api.service.ApiService
-import android.architecture.api.viewModels.BaseViewModel
-import android.architecture.utils.MyAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_api.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class ApiFragment @Inject constructor() : Fragment() {
-    val viewModels: BaseViewModel by viewModels()
+    val navController by lazy { Navigation.findNavController(requireActivity(), R.id.apiFragment) }
 
 
     @Inject
@@ -38,21 +33,7 @@ class ApiFragment @Inject constructor() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUi()
     }
 
-    fun setUi() {
-        fetchApiData()
-    }
-
-    fun fetchApiData() {
-        viewModels.fetchData().observe(viewLifecycleOwner) {
-            tvUrl.append("Base Url-> ${ApiService.BASE_URL}")
-            tvData.apply {
-                layoutManager = LinearLayoutManager(mainActivity)
-                adapter = MyAdapter(it)
-            }
-        }
-    }
 
 }

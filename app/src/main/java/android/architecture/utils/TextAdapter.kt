@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(
+class TextAdapter(
     var jsonPlaceHolderList: retrofit2.Response<ArrayList<Response>>,
-) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<TextAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: RowJsonPlaceholderBinding) :
         RecyclerView.ViewHolder(binding.root)
 
