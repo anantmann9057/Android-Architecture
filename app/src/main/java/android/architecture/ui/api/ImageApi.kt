@@ -1,6 +1,7 @@
 package android.architecture.ui.api
 
 import android.architecture.R
+import android.architecture.api.service.ImageApiService
 import android.architecture.api.viewModels.PicsViewModel
 import android.architecture.utils.ImagesAdapter
 import android.os.Bundle
@@ -36,16 +37,17 @@ class ImageApi : Fragment() {
     }
 
     fun setUi() {
+        tvUrl.setText("Base Url-> ${ImageApiService.IMAGE_BASE_URL}")
         setImagesAdapter()
     }
 
     fun setImagesAdapter() {
         imageViewModel.fetchPics().observe(viewLifecycleOwner) {
-                rvImages.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-                    adapter = ImagesAdapter(it, requireContext())
-                    setItemViewCacheSize(it.size)
-                }
+            rvImages.apply {
+                layoutManager = LinearLayoutManager(requireContext())
+                adapter = ImagesAdapter(it, requireContext())
+                setItemViewCacheSize(it.size)
+            }
         }
     }
 }
