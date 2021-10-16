@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/preferenceFragment"
         android:name="android.architecture.ui.main.fragments.PreferenceFragment"
-        android:label="Preference Example"
+        android:label="Data Store Example"
         tools:layout="@layout/fragment_preference" />
     <fragment
         android:id="@+id/bundleFragment"

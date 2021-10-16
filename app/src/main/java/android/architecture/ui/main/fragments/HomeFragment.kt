@@ -1,6 +1,8 @@
 package android.architecture.ui.main.fragments
 
 import android.architecture.R
+import android.architecture.api.dataStore.StateManager
+import android.architecture.api.viewModels.BaseViewModel
 import android.architecture.utils.PreferencesModule
 import android.content.Context
 import android.content.res.Configuration
@@ -11,9 +13,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -21,6 +28,10 @@ import javax.inject.Inject
 class HomeFragment : Fragment() {
     @Inject
     lateinit var preferences: PreferencesModule
+
+    @Inject
+    lateinit var stateManager: StateManager
+    val baseViewModel: BaseViewModel by viewModels()
     val controller by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentNav) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +58,10 @@ class HomeFragment : Fragment() {
             btDarkMode.isChecked = true
         }
         setupNavigation()
+        stateManager.darkMode.asLiveData().observe(viewLifecycleOwner) {
+            btDarkMode.isChecked = it
+        }
+
     }
 
     fun setupNavigation() {
@@ -76,11 +91,16 @@ class HomeFragment : Fragment() {
         btDarkMode.setOnCheckedChangeListener { compoundButton, b ->
             if (compoundButton.isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                preferences.setIsDarkMode(true)
+                CoroutineScope(IO).launch {
+                    stateManager.isDarkMode(true)
+
+                }
 
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                preferences.setIsDarkMode(false)
+                CoroutineScope(IO).launch {
+                    stateManager.isDarkMode(false)
+                }
 
             }
         }

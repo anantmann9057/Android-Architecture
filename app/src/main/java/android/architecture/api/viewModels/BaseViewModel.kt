@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BaseViewModel @Inject constructor(var textRepository: TextRepository) : ViewModel() {
+
     fun fetchData(): LiveData<retrofit2.Response<ArrayList<Response>>> {
         return textRepository.getPosts().asLiveData()
     }
