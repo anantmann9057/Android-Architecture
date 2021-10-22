@@ -7,13 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.work.*
+import androidx.work.Constraints
+import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
 import kotlinx.android.synthetic.main.fragment_work_manager.*
 import java.util.*
 
 
 class WorkManagerFragment : Fragment() {
-    val imageDownloadWorker by lazy { WorkManager.getInstance(activity!!.applicationContext) }
+    val imageDownloadWorker by lazy { androidx.work.WorkManager.getInstance(activity!!.applicationContext) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
