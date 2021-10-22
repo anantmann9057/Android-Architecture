@@ -1,10 +1,8 @@
 package android.architecture.ui.main
 
 import android.architecture.R
-import android.architecture.utils.PreferencesModule
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import dagger.hilt.android.AndroidEntryPoint

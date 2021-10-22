@@ -12,33 +12,47 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_apiFragment"
-            app:destination="@id/apiFragment" />
+            app:destination="@id/apiFragment"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_homeFragment_to_injectionFragment"
-            app:destination="@id/injectionFragment" />
+            app:destination="@id/injectionFragment"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_homeFragment_to_preferenceFragment"
-            app:destination="@id/preferenceFragment" />
+            app:destination="@id/preferenceFragment"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_homeFragment_to_bundleFragment"
-            app:destination="@id/bundleFragment" />
+            app:destination="@id/bundleFragment"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_homeFragment_to_offlineCachingFragment"
-            app:destination="@id/offlineCachingFragment" />
+            app:destination="@id/offlineCachingFragment"
+            app:restoreState="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_navigationExampleFragment"
+            app:destination="@id/navigationExampleFragment"
+            app:restoreState="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_workManagerFragment"
+            app:destination="@id/workManagerFragment"
+            app:restoreState="true" />
     </fragment>
     <fragment
         android:id="@+id/apiFragment"
-        android:name="android.architecture.ui.api.ApiFragment"
+        android:name="android.architecture.ui.api.fragments.ApiFragment"
         android:label="Api Example"
         tools:layout="@layout/fragment_api" />
     <fragment
         android:id="@+id/injectionFragment"
         android:name="android.architecture.ui.main.fragments.InjectionFragment"
         android:label="Injection Example"
-        tools:layout="@layout/fragment_injection" >
+        tools:layout="@layout/fragment_injection">
         <action
             android:id="@+id/action_injectionFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:restoreState="true" />
     </fragment>
     <fragment
         android:id="@+id/preferenceFragment"
@@ -55,4 +69,14 @@
         android:name="android.architecture.ui.main.fragments.OfflineCachingFragment"
         android:label="Offline Caching Example"
         tools:layout="@layout/fragment_offline_caching" />
+    <fragment
+        android:id="@+id/navigationExampleFragment"
+        android:name="android.architecture.ui.navigation.NavigationExampleFragment"
+        android:label="activity_navigation_example"
+        tools:layout="@layout/activity_navigation_example" />
+    <fragment
+        android:id="@+id/workManagerFragment"
+        android:name="android.architecture.WorkManagerFragment"
+        android:label="Work Manager Example"
+        tools:layout="@layout/fragment_work_manager" />
 </navigation>

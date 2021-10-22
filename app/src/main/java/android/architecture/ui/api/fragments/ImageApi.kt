@@ -1,9 +1,10 @@
-package android.architecture.ui.api
+package android.architecture.ui.api.fragments
 
 import android.architecture.R
 import android.architecture.api.service.ImageApiService
 import android.architecture.api.viewModels.PicsViewModel
-import android.architecture.utils.ImagesAdapter
+import android.architecture.ui.adapters.ImagesAdapter
+import android.architecture.api.paging.PicsLoadStateAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,12 +43,16 @@ class ImageApi : Fragment() {
     }
 
     fun setImagesAdapter() {
-        imageViewModel.fetchPics().observe(viewLifecycleOwner) {
-            rvImages.apply {
-                layoutManager = LinearLayoutManager(requireContext())
-                adapter = ImagesAdapter(it, requireContext())
-                setItemViewCacheSize(it.size)
-            }
+        val adapter = ImagesAdapter()
+        imageViewModel.fetchPics.observe(viewLifecycleOwner) {
+            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+            rvImages.adapter = adapter.withLoadStateHeaderAndFooter(
+                header = PicsLoadStateAdapter { adapter.retry() },
+                footer = PicsLoadStateAdapter { adapter.retry() }
+            )
+            rvImages.layoutManager = LinearLayoutManager(requireContext())
+            rvImages.setItemViewCacheSize(200)
         }
+
     }
 }

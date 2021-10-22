@@ -31,7 +31,7 @@ class StateManager @Inject constructor(@ApplicationContext context: Context) {
         }
     }
 
-    val dataFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {
+    val dataFlow: Flow<String> = dataStore.data.map {
         it[DATA] ?: ""
     }
 

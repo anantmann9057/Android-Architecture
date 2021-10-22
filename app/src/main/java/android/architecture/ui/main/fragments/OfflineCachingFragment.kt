@@ -3,7 +3,7 @@ package android.architecture.ui.main.fragments
 import android.architecture.R
 import android.architecture.api.PicsModel
 import android.architecture.api.viewModels.PicsViewModel
-import android.architecture.utils.ImagesAdapter
+import android.architecture.ui.adapters.OfflineCachingAdapter
 import android.architecture.utils.showToast
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -52,9 +52,10 @@ class OfflineCachingFragment : Fragment() {
                     showToast(it.error)
                 }
             }
+
             rvOfflineCaching.apply {
                 layoutManager = LinearLayoutManager(requireContext())
-                adapter = ImagesAdapter(it.data as ArrayList<PicsModel>, requireContext())
+                adapter = OfflineCachingAdapter(it.data as ArrayList<PicsModel>)
                 setItemViewCacheSize(it.data.size)
             }
 

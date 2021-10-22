@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.api.ApiFragment">
+    tools:context=".ui.api.fragments.ApiFragment">
 
     <fragment
         android:id="@+id/fragmentApi"

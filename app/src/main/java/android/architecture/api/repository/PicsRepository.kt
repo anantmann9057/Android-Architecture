@@ -3,15 +3,13 @@ package android.architecture.api.repository
 import android.architecture.api.PicsModel
 import android.architecture.api.service.ImageApiService
 import android.architecture.database.PicsDatabase
-import android.util.Log
+import android.architecture.api.paging.Paging
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.liveData
 import androidx.room.withTransaction
 import com.example.downloadcoroutines.utils.networkBoundResource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -40,11 +38,20 @@ class PicsRepository @Inject constructor(
     fun fetchPics(
         page: Int? = null,
         limit: Int? = null,
-    ): Flow<ArrayList<PicsModel>> {
-        return flow {
-            emit(imageService.getPics(page, limit))
-        }.catch { e ->
-            Log.e("Pics Exception->", e.localizedMessage)
-        }.flowOn(Dispatchers.IO)
-    }
+    ) = Pager(config = PagingConfig(
+        pageSize = 20,
+        maxSize = 100,
+        enablePlaceholders = false
+    ), pagingSourceFactory = { Paging(imageService) }).liveData
+
+//    fun fetchPics(
+//        page: Int? = null,
+//        limit: Int? = null,
+//    ): Flow<ArrayList<PicsModel>> {
+//        return flow {
+//            emit(imageService.getPics(page, limit))
+//        }.catch { e ->
+//            Log.e("Pics Exception->", e.localizedMessage)
+//        }.flowOn(Dispatchers.IO)
+//    }
 }

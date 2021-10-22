@@ -1,9 +1,9 @@
-package android.architecture.ui.api
+package android.architecture.ui.api.fragments
 
 import android.architecture.R
 import android.architecture.api.service.ApiService
 import android.architecture.api.viewModels.BaseViewModel
-import android.architecture.utils.TextAdapter
+import android.architecture.ui.adapters.TextAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

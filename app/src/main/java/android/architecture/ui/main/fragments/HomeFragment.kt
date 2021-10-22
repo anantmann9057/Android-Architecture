@@ -29,13 +29,13 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var preferences: PreferencesModule
 
+
     @Inject
     lateinit var stateManager: StateManager
     val baseViewModel: BaseViewModel by viewModels()
     val controller by lazy { Navigation.findNavController(requireActivity(), R.id.fragmentNav) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
     }
 
@@ -87,22 +87,29 @@ class HomeFragment : Fragment() {
             controller.navigate(R.id.action_homeFragment_to_offlineCachingFragment)
         }
 
+        btWorkManager.setOnClickListener {
+            controller.navigate(R.id.action_homeFragment_to_workManagerFragment)
+        }
 
         btDarkMode.setOnCheckedChangeListener { compoundButton, b ->
             if (compoundButton.isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                CoroutineScope(IO).launch {
-                    stateManager.isDarkMode(true)
-
-                }
+                isDarkMode(true)
+                //      controller.navigate(R.id.action_homeFragment_to_navigationExampleFragment)
 
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 CoroutineScope(IO).launch {
-                    stateManager.isDarkMode(false)
+                    isDarkMode(false)
                 }
 
             }
+        }
+    }
+
+    private fun isDarkMode(isDarkModeON: Boolean) {
+        CoroutineScope(IO).launch {
+            stateManager.isDarkMode(isDarkModeON)
         }
     }
 

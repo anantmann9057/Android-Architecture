@@ -5,29 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.navigation.NavigationExampleFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbHome"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:elevation="10dp"
-        app:layout_constraintBottom_toTopOf="@id/fragmentNav"
+        app:layout_constraintBottom_toTopOf="@id/navigationFragment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <fragment
-        android:id="@+id/fragmentNav"
+        android:id="@+id/navigationFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tbHome"
-        app:navGraph="@navigation/home_navigation" />
+        app:navGraph="@navigation/navigation_activity_graph" />
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigationFragment"
+        app:menu="@menu/navigation_activity_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package android.architecture.ui.api
+package android.architecture.ui.api.fragments
 
 import android.architecture.R
 import android.os.Bundle

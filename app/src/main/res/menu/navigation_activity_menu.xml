@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group>
+        <item
+            android:id="@+id/fragmentOne"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Fragment One"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/fragmentTwo"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Fragment Two"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/fragmentThree"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Fragment Three"
+            app:showAsAction="always" />
+    </group>
+</menu>

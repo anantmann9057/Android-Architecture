@@ -261,7 +261,6 @@
     <color name="light_color">#aedf6c</color>
 
 
-
     <color name="wave_one_start_color">#8be9e9</color>
     <color name="wave_one_close_color">#4ddbdc</color>
     <color name="wave_two_start_color">#fdc1c0</color>
@@ -270,8 +269,6 @@
     <color name="wave_three_close_color">#b4fac8</color>
     <color name="wave_four_start_color">#b6f4e9</color>
     <color name="wave_four_close_color">#77f7e0</color>
-
-
 
 
     <color name="amber_50">#FFF8E1</color>

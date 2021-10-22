@@ -7,14 +7,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.downloadcoroutines.utils.NetworkResource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
 class PicsViewModel @Inject constructor(var picsRepository: PicsRepository) : ViewModel() {
-    fun fetchPics(): LiveData<ArrayList<PicsModel>> {
-        return picsRepository.fetchPics().asLiveData()
-    }
+
+    val fetchPics = picsRepository.fetchPics()
+//    fun fetchPics(): LiveData<ArrayList<PicsModel>> {
+//        return picsRepository.fetchPics()
+//    }
 
     fun getPics(
         page: Int? = null,

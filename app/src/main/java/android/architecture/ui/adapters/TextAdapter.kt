@@ -1,4 +1,4 @@
-package android.architecture.utils
+package android.architecture.ui.adapters
 
 import android.architecture.api.Response
 import android.architecture.databinding.RowJsonPlaceholderBinding

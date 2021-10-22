@@ -6,9 +6,9 @@
     app:startDestination="@id/dataFragment">
     <fragment
         android:id="@+id/dataFragment"
-        android:name="android.architecture.ui.api.DataFragment"
+        android:name="android.architecture.ui.api.fragments.DataFragment"
         android:label="fragment_data"
-        tools:layout="@layout/fragment_data" >
+        tools:layout="@layout/fragment_data">
         <action
             android:id="@+id/action_dataFragment_to_imageApi"
             app:destination="@id/imageApi" />
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/imageApi"
-        android:name="android.architecture.ui.api.ImageApi"
+        android:name="android.architecture.ui.api.fragments.ImageApi"
         android:label="fragment_image_api"
         tools:layout="@layout/fragment_image_api" />
     <fragment
         android:id="@+id/textApi"
-        android:name="android.architecture.ui.api.TextApi"
+        android:name="android.architecture.ui.api.fragments.TextApi"
         android:label="fragment_text_api"
         tools:layout="@layout/fragment_text_api" />
 </navigation>

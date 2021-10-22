@@ -1,9 +1,7 @@
 package android.architecture.api.repository
 
-import android.architecture.api.PicsModel
 import android.architecture.api.Response
 import android.architecture.api.service.ApiService
-import android.architecture.api.service.ImageApiService
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +12,8 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class TextRepository @Inject constructor(
-    @Named("text_api") var apiService: ApiService) {
+    @Named("text_api") var apiService: ApiService
+) {
     fun getPosts(): Flow<retrofit2.Response<ArrayList<Response>>> {
         return flow {
             emit(apiService.getPosts())
