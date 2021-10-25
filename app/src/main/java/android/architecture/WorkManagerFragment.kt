@@ -40,7 +40,6 @@ class WorkManagerFragment : Fragment() {
 
     fun setUI() {
         setWorkManager()
-
     }
 
     fun setWorkManager() {
